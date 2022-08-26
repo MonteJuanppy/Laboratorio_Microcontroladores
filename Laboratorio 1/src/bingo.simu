@@ -1,0 +1,7 @@
+<circuit animate="0" Simu_Step_nS="1000" reactStep="50" Speed_sps="1000000" type="simulide_0.4" noLinAcc="5" Speed_per="100">
+
+Unique  Id: pic12f675-9: 
+Circuit Id: pic12f675-154
+<item circPos="0,0" labelx="0" circRot="1.7303191e-316" Logic_Symbol="false" Show_id="true" valLabRot="0" boardPos="-1e+6,-1e+6" labely="-20" valLabelx="0" y="-268" boardRot="-1e+6" vflip="1" Auto_Load="false" x="-516" labelrot="0" mainComp="false" varList=",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,," hflip="1" Program="blink.hex" itemtype="PIC" eeprom="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" id="pic12f675-154" Name="" valLabely="0" rotation="0" objectName="pic12f675-9" Mhz="20"/>
+ 
+</circuit>
