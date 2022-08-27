@@ -17,6 +17,21 @@ void delay (int tiempo);
 void main(void)
 {
 	//FALTA IMPLEMENTAR LOGICA
+	TRISIO = 0b00000000; //Se ponen los pines como salidas. Solo el GP3 es entrada por defecto
+	GPIO = 0x00; //Poner pines en bajo
+ 
+    unsigned int time = 100;
+ 
+    //Loop forever
+    while ( 1 )
+    {
+		//Imprimir 23 en los displays
+			GP0 = 0x00;
+			delay(time);
+			GP0 = ~GP0;
+			delay(time);
+    }
+ 
 }
 
 //Se define la función delay. Se deja por el momento por si luego puede ser de utilidad
@@ -28,3 +43,4 @@ void delay(int tiempo)
 	for(i=0;i<tiempo;i++)
 	  for(j=0;j<1275;j++);
 }
+
