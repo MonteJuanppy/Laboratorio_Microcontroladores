@@ -12,32 +12,47 @@ Ciclo: II-2022
 #include <pic14/pic12f675.h>
  
 #define Boton  GP3
+
+typedef unsigned int word;
+word __at 0x2007 __CONFIG = (_WDTE_OFF & _WDT_OFF & _MCLRE_OFF);  // WDT y MCLR OFF
+
 //Prototipo de función delay
 void delay (unsigned int tiempo);
 void desplegar_numero (unsigned int numero, unsigned int display);
  
 void main(void)
 {
-	//FALTA IMPLEMENTAR LOGICA
-	ANSEL  = 0x00;   // Set ports as digital I/O, not analog input
-	ADCON0 = 0x00;          // Shut off the A/D Converter
-    CMCON  = 0x07;          // Deshabilita el comparador 
-    VRCON  = 0x00;         // Shut off the Voltage Reference
+	ANSEL  = 0x00;   //Se poenen los puertos como digitales, no analogicos
+    CMCON  = 0x07;   // Deshabilita el comparador 
+    VRCON  = 0x00;   //Se quita le referencia de tension
 	TRISIO = 0b00001000; //Se ponen los pines como salidas. Solo el GP3 es entrada por defecto
 	GPIO = 0x00; //Poner pines en bajo
  
-    unsigned int time = 1;
+    unsigned int tiempo = 1;
+	unsigned int numero_0 = 15;//Valor por defecto, por lo que se despliega "F" en pantalla del display 0.
+	unsigned int numero_1 = 15;//Valor por defecto, por lo que se despliega "F" en pantalla del display 1.
+	int contador = 0;
  
-    //Loop forever
-    while ( Boton !=1 )
-    {
-		//Imprimir 23 en los displays
-		desplegar_numero(8,0);
-		delay(time);
-		desplegar_numero(5,1);
-		delay(time);
-			
-    }
+	//Loop que se repite siempre
+
+	while (1)
+	{
+		//Se verifica el estado del boton
+		if ( Boton == 1)
+		{
+			//Imprimir los numeros en los displays
+			desplegar_numero(numero_0,0);
+			delay(tiempo);
+			desplegar_numero(numero_1,1);
+			delay(tiempo);
+		}
+
+		if ( Boton != 1){
+			numero_0 = 2;
+			numero_1 = 7;
+		}
+	}
+	
  
 }
 
