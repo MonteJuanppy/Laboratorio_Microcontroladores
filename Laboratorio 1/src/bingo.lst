@@ -1,6 +1,6 @@
 gplink-1.4.0 #1107 (Apr  3 2018)
 Copyright (c) 1998-2014 gputils project
-Listing File Generated: 8-28-2022  17:31:50
+Listing File Generated: 8-29-2022  16:35:36
  
  
 Address  Value    Disassembly              Source
@@ -320,7 +320,7 @@ Address  Value    Disassembly              Source
                                            _00157_DS_:
 000058   1c03     btfss   0x03, 0x0        	BTFSS	STATUS,0
 000059   285c     goto    0x005c           	GOTO	_00108_DS_
-                                           ;;genSkipc:3307: created from rifx:0x7ffc62e8cfb0
+                                           ;;genSkipc:3307: created from rifx:0x7ffc683d69e0
                                            ;	.line	63; "bingo.c"	random = 0; //Vuelve a ser 0.
 00005a   01b6     clrf    0x36             	CLRF	r0x1018
 00005b   01b7     clrf    0x37             	CLRF	r0x1019
@@ -336,7 +336,7 @@ Address  Value    Disassembly              Source
                                            _00158_DS_:
 000062   1c03     btfss   0x03, 0x0        	BTFSS	STATUS,0
 000063   2866     goto    0x0066           	GOTO	_00110_DS_
-                                           ;;genSkipc:3307: created from rifx:0x7ffc62e8cfb0
+                                           ;;genSkipc:3307: created from rifx:0x7ffc683d69e0
                                            ;	.line	68; "bingo.c"	random2 = 0;//Vuelve a ser 0.
 000064   01b8     clrf    0x38             	CLRF	r0x101A
 000065   01b9     clrf    0x39             	CLRF	r0x101B
@@ -585,7 +585,7 @@ Address  Value    Disassembly              Source
                                            _00251_DS_:
 00025b   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
 00025c   2a79     goto    0x0279           	GOTO	_00240_DS_
-                                           ;;genSkipc:3307: created from rifx:0x7ffc62e8cfb0
+                                           ;;genSkipc:3307: created from rifx:0x7ffc683d69e0
                                            ;	.line	220; "bingo.c"	desplegar_numero(numero,0);
 00025d   3000     movlw   0x00             	MOVLW	0x00
 00025e   00ad     movwf   0x2d             	MOVWF	STK02
@@ -944,7 +944,7 @@ Address  Value    Disassembly              Source
                                            _00191_DS_:
 0002b9   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
 0002ba   2ad4     goto    0x02d4           	GOTO	_00172_DS_
-                                           ;;genSkipc:3307: created from rifx:0x7ffc62e8cfb0
+                                           ;;genSkipc:3307: created from rifx:0x7ffc683d69e0
                                            ;	.line	108; "bingo.c"	for(j=0;j<1275;j++);
 0002bb   30fb     movlw   0xfb             	MOVLW	0xfb
 0002bc   00c2     movwf   0x42             	MOVWF	r0x1004

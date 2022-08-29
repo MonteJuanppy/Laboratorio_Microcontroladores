@@ -303,7 +303,7 @@ _00106_DS_:
 _00157_DS_:
 	BTFSS	STATUS,0
 	GOTO	_00108_DS_
-;;genSkipc:3307: created from rifx:0x7ffc62e8cfb0
+;;genSkipc:3307: created from rifx:0x7ffc683d69e0
 ;	.line	63; "bingo.c"	random = 0; //Vuelve a ser 0.
 	CLRF	r0x1018
 	CLRF	r0x1019
@@ -319,7 +319,7 @@ _00108_DS_:
 _00158_DS_:
 	BTFSS	STATUS,0
 	GOTO	_00110_DS_
-;;genSkipc:3307: created from rifx:0x7ffc62e8cfb0
+;;genSkipc:3307: created from rifx:0x7ffc683d69e0
 ;	.line	68; "bingo.c"	random2 = 0;//Vuelve a ser 0.
 	CLRF	r0x101A
 	CLRF	r0x101B
@@ -568,7 +568,7 @@ _00238_DS_:
 _00251_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00240_DS_
-;;genSkipc:3307: created from rifx:0x7ffc62e8cfb0
+;;genSkipc:3307: created from rifx:0x7ffc683d69e0
 ;	.line	220; "bingo.c"	desplegar_numero(numero,0);
 	MOVLW	0x00
 	MOVWF	STK02
@@ -927,7 +927,7 @@ _00170_DS_:
 _00191_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00172_DS_
-;;genSkipc:3307: created from rifx:0x7ffc62e8cfb0
+;;genSkipc:3307: created from rifx:0x7ffc683d69e0
 ;	.line	108; "bingo.c"	for(j=0;j<1275;j++);
 	MOVLW	0xfb
 	MOVWF	r0x1004
