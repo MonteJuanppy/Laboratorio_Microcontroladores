@@ -35,7 +35,7 @@ void main(void)
 	unsigned int contador = 0; //Contador para llevar cuenta de numeros mostrados
 	unsigned int random = 0; //Variable para generar numero aleatorio
 	unsigned int random2 = 0;//Variable para generar numero aleatorio
-	unsigned int sumar = 0; //Variable para determinar si se incrementa el contador
+	unsigned char sumar = 0; //Variable para determinar si se incrementa el contador
  
 	//Loop que se repite siempre
 

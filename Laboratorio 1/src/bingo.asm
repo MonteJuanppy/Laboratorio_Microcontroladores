@@ -88,7 +88,6 @@ r0x101B	res	1
 r0x101C	res	1
 r0x101D	res	1
 r0x101E	res	1
-r0x101F	res	1
 r0x1001	res	1
 r0x1000	res	1
 r0x1002	res	1
@@ -157,7 +156,7 @@ code_bingo	code
 ;   _desplegar_prolongado
 ;   _desplegar_prolongado
 ;   _desplegar_prolongado
-;19 compiler assigned registers:
+;18 compiler assigned registers:
 ;   r0x1012
 ;   r0x1013
 ;   r0x1014
@@ -170,11 +169,10 @@ code_bingo	code
 ;   r0x101B
 ;   r0x101C
 ;   r0x101D
-;   r0x101E
 ;   STK02
 ;   STK01
 ;   STK00
-;   r0x101F
+;   r0x101E
 ;   STK04
 ;   STK03
 ;; Starting pCode block
@@ -214,9 +212,8 @@ _main:
 ;	.line	37; "bingo.c"	unsigned int random2 = 0;//Variable para generar numero aleatorio
 	CLRF	r0x101A
 	CLRF	r0x101B
-;	.line	38; "bingo.c"	unsigned int sumar = 0; //Variable para determinar si se incrementa el contador
+;	.line	38; "bingo.c"	unsigned char sumar = 0; //Variable para determinar si se incrementa el contador
 	CLRF	r0x101C
-	CLRF	r0x101D
 _00118_DS_:
 ;	.line	45; "bingo.c"	random +=1; 
 	INCF	r0x1018,F
@@ -227,18 +224,17 @@ _00118_DS_:
 	BTFSC	STATUS,2
 	INCF	r0x101B,F
 ;	.line	48; "bingo.c"	if ( Boton == 1) //Si el boton no esta presionado (configuracion pull-up)
-	CLRF	r0x101E
+	CLRF	r0x101D
 	BANKSEL	_GPIObits
 	BTFSC	_GPIObits,3
-	INCF	r0x101E,F
-	MOVF	r0x101E,W
+	INCF	r0x101D,F
+	MOVF	r0x101D,W
 	XORLW	0x01
 	BTFSS	STATUS,2
 	GOTO	_00106_DS_
 ;	.line	51; "bingo.c"	sumar = 1;
 	MOVLW	0x01
 	MOVWF	r0x101C
-	CLRF	r0x101D
 ;	.line	53; "bingo.c"	desplegar_numero(numero_0,0);
 	MOVLW	0x00
 	MOVWF	STK02
@@ -253,11 +249,11 @@ _00118_DS_:
 ;	.line	54; "bingo.c"	random2 +=1;//Se incrementa otro contador
 	MOVLW	0x01
 	ADDWF	r0x101A,W
-	MOVWF	r0x101E
-	CLRF	r0x101F
-	RLF	r0x101F,F
+	MOVWF	r0x101D
+	CLRF	r0x101E
+	RLF	r0x101E,F
 	MOVF	r0x101B,W
-	ADDWF	r0x101F,F
+	ADDWF	r0x101E,F
 ;	.line	55; "bingo.c"	delay(tiempo);
 	MOVLW	0x01
 	MOVWF	STK00
@@ -278,11 +274,11 @@ _00118_DS_:
 	PAGESEL	$
 ;	.line	57; "bingo.c"	random2 +=1; //Se vuelve a incrementar
 	MOVLW	0x01
-	ADDWF	r0x101E,W
+	ADDWF	r0x101D,W
 	MOVWF	r0x101A
 	CLRF	r0x101B
 	RLF	r0x101B,F
-	MOVF	r0x101F,W
+	MOVF	r0x101E,W
 	ADDWF	r0x101B,F
 ;	.line	58; "bingo.c"	delay(tiempo);
 	MOVLW	0x01
@@ -303,7 +299,7 @@ _00106_DS_:
 _00157_DS_:
 	BTFSS	STATUS,0
 	GOTO	_00108_DS_
-;;genSkipc:3307: created from rifx:0x7ffe19f03180
+;;genSkipc:3307: created from rifx:0x7ffe09f25d90
 ;	.line	63; "bingo.c"	random = 0; //Vuelve a ser 0.
 	CLRF	r0x1018
 	CLRF	r0x1019
@@ -319,17 +315,17 @@ _00108_DS_:
 _00158_DS_:
 	BTFSS	STATUS,0
 	GOTO	_00110_DS_
-;;genSkipc:3307: created from rifx:0x7ffe19f03180
+;;genSkipc:3307: created from rifx:0x7ffe09f25d90
 ;	.line	68; "bingo.c"	random2 = 0;//Vuelve a ser 0.
 	CLRF	r0x101A
 	CLRF	r0x101B
 _00110_DS_:
 ;	.line	72; "bingo.c"	if ( Boton != 1){//Si el boton se presiona
-	CLRF	r0x101E
+	CLRF	r0x101D
 	BANKSEL	_GPIObits
 	BTFSC	_GPIObits,3
-	INCF	r0x101E,F
-	MOVF	r0x101E,W
+	INCF	r0x101D,F
+	MOVF	r0x101D,W
 ;	.line	73; "bingo.c"	if (sumar ==1)//Si sumar es 1. Esta logica se implementa para solo
 	XORLW	0x01
 	BTFSC	STATUS,2
@@ -338,17 +334,12 @@ _00110_DS_:
 	XORLW	0x01
 	BTFSS	STATUS,2
 	GOTO	_00112_DS_
-	MOVF	r0x101D,W
-	XORLW	0x00
-	BTFSS	STATUS,2
-	GOTO	_00112_DS_
 ;	.line	76; "bingo.c"	contador +=1;//Se incrementa el contador
 	INCF	r0x1016,F
 	BTFSC	STATUS,2
 	INCF	r0x1017,F
 ;	.line	77; "bingo.c"	sumar = 0;//Vuelve a su estado inicial
 	CLRF	r0x101C
-	CLRF	r0x101D
 _00112_DS_:
 ;	.line	79; "bingo.c"	numero_1 = (unsigned int)(random);//Se asigna un numero aleatorio para desplegar en el display 1
 	MOVF	r0x1018,W
@@ -568,7 +559,7 @@ _00238_DS_:
 _00251_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00240_DS_
-;;genSkipc:3307: created from rifx:0x7ffe19f03180
+;;genSkipc:3307: created from rifx:0x7ffe09f25d90
 ;	.line	221; "bingo.c"	desplegar_numero(numero,0);
 	MOVLW	0x00
 	MOVWF	STK02
@@ -927,7 +918,7 @@ _00170_DS_:
 _00191_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00172_DS_
-;;genSkipc:3307: created from rifx:0x7ffe19f03180
+;;genSkipc:3307: created from rifx:0x7ffe09f25d90
 ;	.line	109; "bingo.c"	for(j=0;j<1275;j++);
 	MOVLW	0xfb
 	MOVWF	r0x1004
@@ -963,6 +954,6 @@ _00172_DS_:
 
 
 ;	code size estimation:
-;	  495+   52 =   547 instructions ( 1198 byte)
+;	  488+   52 =   540 instructions ( 1184 byte)
 
 	end
