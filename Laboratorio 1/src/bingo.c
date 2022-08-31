@@ -14,7 +14,7 @@ Ciclo: II-2022
 #define Boton  GP3//Se define parametro ligado a pin GPIO3
 
 typedef unsigned int word; //Variable para modificar registro Config
-word __at 0x2007 __CONFIG = (_WDT_OFF & _MCLRE_OFF); //Se ponen parametros para apagar condiciones de reset
+word __at 0x2007 __CONFIG = (_MCLRE_OFF & _WDT_OFF); //Se ponen parametros para apagar condiciones de reset
 
 //Prototipos de funciones
 void delay (unsigned int tiempo);
@@ -70,7 +70,8 @@ void main(void)
 
 
 		if ( Boton != 1){//Si el boton se presiona
-			if (sumar ==1)//Si sumar es 1
+			if (sumar ==1)//Si sumar es 1. Esta logica se implementa para solo
+			//sumar 1 al contador y no mas cuando se presiona el boton
 			{
 				contador +=1;//Se incrementa el contador
 				sumar = 0;//Vuelve a su estado inicial
